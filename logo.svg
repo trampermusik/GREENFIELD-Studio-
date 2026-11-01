@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">GREENFIELD STUDIO</title><desc id="desc">Greenfield Studio – Musikproduktion im Grünen, mit Schallplatte und Baum.</desc>
+<g fill="#f1ebdd" stroke="#f1ebdd" stroke-linecap="round" stroke-linejoin="round">
+<path d="M142 34 A112 112 0 0 0 142 258 L142 34Z" fill="none" stroke-width="5"/>
+<path d="M142 49 A97 97 0 0 0 142 243 M142 66 A80 80 0 0 0 142 226 M142 84 A62 62 0 0 0 142 208 M142 103 A43 43 0 0 0 142 189" fill="none" stroke-width="2.6"/>
+<circle cx="142" cy="146" r="10" stroke="none"/>
+<text x="175" y="195" font-family="Georgia,serif" font-size="142" font-weight="bold" letter-spacing="1" stroke="none">GREENFIELD</text>
+<path d="M175 222 H1020" fill="none" stroke-width="3"/>
+<path d="M1020 222 C1040 205 1052 175 1058 137 M1058 137 L1027 106 M1058 137 L1091 100 M1058 137 L1022 151 M1058 137 L1097 159 M1058 137 L1057 88 M1058 137 L1078 66 M1058 137 L1038 75 M1058 137 L1010 127" fill="none" stroke-width="6"/>
+<g stroke-width="3" fill="none">
+<path d="M1027 106 l-15 -10 m15 10 l-2 -18 M1091 100 l14 -14 m-14 14 l4 -20 M1022 151 l-17 1 m17 -1 l-7 15 M1097 159 l17 7 m-17 -7 l8 -12 M1057 88 l-9 -17 m9 17 l10 -18 M1078 66 l-1 -17 m1 17 l13 -11 M1038 75 l-13 -13 m13 13 l-1 -17 M1010 127 l-16 -7 m16 7 l-3 -16"/>
+</g>
+<path d="M1058 137 C1055 174 1052 203 1036 222" fill="none" stroke-width="8"/>
+<path d="M1036 222 H1160" fill="none" stroke-width="3"/>
+<text x="600" y="274" text-anchor="middle" font-family="Georgia,serif" font-size="39" letter-spacing="13" stroke="none">STUDIO</text>
+<text x="600" y="298" text-anchor="middle" font-family="Georgia,serif" font-size="19" letter-spacing="1" stroke="none">Musikproduktion im Grünen.</text>
+</g></svg>
