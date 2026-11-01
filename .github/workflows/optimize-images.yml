@@ -1,0 +1,52 @@
+name: Optimize studio photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Public/Images/**"
+      - ".github/workflows/optimize-images.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Convert JPG photos to WebP
+        run: |
+          npm install --no-save sharp
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const sharp = require('sharp');
+          (async () => {
+            const dir = 'Public/Images';
+            const files = fs.readdirSync(dir).filter(f => /\\.(jpe?g)$/i.test(f));
+            for (const file of files) {
+              const input = path.join(dir, file);
+              const output = path.join(dir, file.replace(/\\.(jpe?g)$/i, '.webp'));
+              const isPortrait = file.startsWith('20260522-');
+              await sharp(input)
+                .rotate()
+                .resize({ width: isPortrait ? 1400 : 1600, withoutEnlargement: true })
+                .webp({ quality: 82, effort: 5 })
+                .toFile(output);
+              const before = fs.statSync(input).size;
+              const after = fs.statSync(output).size;
+              console.log(file + ': ' + Math.round(before / 1024) + ' KB -> ' + Math.round(after / 1024) + ' KB');
+            }
+          })().catch(err => { console.error(err); process.exit(1); });
+          NODE
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Public/Images/*.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Add optimized WebP studio photos"
+            git push
+          fi
