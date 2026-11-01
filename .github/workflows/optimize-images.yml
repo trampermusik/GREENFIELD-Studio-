@@ -25,10 +25,13 @@ jobs:
           const sharp = require('sharp');
           (async () => {
             const dir = 'Public/Images';
-            const files = fs.readdirSync(dir).filter(f => /\\.(jpe?g)$/i.test(f));
+            const files = fs.readdirSync(dir).filter(f => {
+              const lower = f.toLowerCase();
+              return lower.endsWith('.jpg') || lower.endsWith('.jpeg');
+            });
             for (const file of files) {
               const input = path.join(dir, file);
-              const output = path.join(dir, file.replace(/\\.(jpe?g)$/i, '.webp'));
+              const output = path.join(dir, file.slice(0, file.lastIndexOf('.')) + '.webp');
               const isPortrait = file.startsWith('20260522-');
               await sharp(input)
                 .rotate()
